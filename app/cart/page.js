@@ -235,7 +235,7 @@ const CartPage = () => {
           {!!cartProducts?.length && (
             <Box>
               <h2>Order Information</h2>
-              <form onSubmit={processPayment}>
+              <form onSubmit={processPayment} autocomplete="off" >
                 <Input
                   type="text"
                   placeholder="Name"
