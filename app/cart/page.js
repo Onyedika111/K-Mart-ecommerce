@@ -126,7 +126,7 @@ const CartPage = () => {
   async function processPayment(e) {
     e.preventDefault();
     
-const {clearCart} = useContext(CartContext)
+
     const response = await axios.post("/api/checkout", {
       name,
       email,
