@@ -105,7 +105,7 @@ const CartPage = () => {
     if (window.location.href.includes("success")) {
       clearCart();
     }
-  }, []);
+  }, [clearCart]);
 
   function moreOfThisProduct(id) {
     addProduct(id);
@@ -121,27 +121,7 @@ const CartPage = () => {
     total += price;
   }
 
-  // async function processPayment(e) {
-  //   e.preventDefault();
 
-  //   const data = {
-  //     name,
-  //     email,
-  //     city,
-  //     streetAddress,
-  //     postalCode,
-  //     country,
-  //     products: cartProducts.join(","),
-  //   };
-
-  //   await axios.post("/api/checkout", data, {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-
-  //   window.location.assign(data);
-  // }
 
   async function processPayment(e) {
     e.preventDefault();
@@ -204,7 +184,7 @@ const {clearCart} = useContext(CartContext)
 
                 <tbody>
                   {products?.map((product) => (
-                    <tr>
+                    <tr key={product.title}>
                       <ProductInfoCell>
                         <ProductImageBox>
                           <img src={product.images[0]} alt="product" />

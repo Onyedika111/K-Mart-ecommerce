@@ -52,7 +52,7 @@ const ProductPage = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [id]);
 
   return (
     <>

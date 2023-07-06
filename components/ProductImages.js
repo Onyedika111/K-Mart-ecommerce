@@ -43,7 +43,7 @@ const ProductImages = ({ images }) => {
 
       <ImageButtons>
         {images?.map((image) => (
-          <ImageButton active={image === activeImage} onClick={() => setActiveImage(image)}>
+          <ImageButton key={image} active={image === activeImage} onClick={() => setActiveImage(image)}>
             <Image src={image} alt="diplay product" />
           </ImageButton>
         ))}
