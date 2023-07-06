@@ -85,6 +85,7 @@ const CartPage = () => {
   const [streetAddress, setStreetAddress] = useState("");
   const [postalCode, setPostalCode] = useState("");
   const [country, setCountry] = useState("");
+  const [isSuccess,setIsSuccess] = useState(false);
 
   useEffect(() => {
     if (cartProducts?.length > 0) {
@@ -102,10 +103,14 @@ const CartPage = () => {
   }, [cartProducts]);
 
   useEffect(() => {
-    if (window.location.href.includes("success")) {
+    if (typeof window === 'undefined') {
+      return;
+    }
+    if (window?.location.href.includes('success')) {
+      setIsSuccess(true);
       clearCart();
     }
-  }, [clearCart]);
+  }, []);
 
   function moreOfThisProduct(id) {
     addProduct(id);
@@ -148,7 +153,7 @@ const CartPage = () => {
     clearCart()
   }
 
-  if (window.location.href.includes("success")) {
+  if (isSuccess) {
     return (
       <>
         <Header />
